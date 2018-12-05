@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_free2d.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skunz <skunz@student.42.us.org>            +#+  +:+       +#+        */
+/*   By: skunz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 18:29:18 by skunz             #+#    #+#             */
-/*   Updated: 2018/09/23 18:29:19 by skunz            ###   ########.fr       */
+/*   Created: 2018/11/27 09:28:34 by skunz             #+#    #+#             */
+/*   Updated: 2018/11/27 09:28:36 by skunz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_striter(char *s, void (*f)(char *))
+#include "libft.h"
+
+void	ft_free2d(char **array, int len)
 {
-	if (s && f)
-		while (*s)
-			f(s++);
+	int i;
+
+	i = -1;
+	while (++i < len)
+		free(array[i]);
+	free(array);
 }

@@ -23,35 +23,3 @@ void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 		}
 	}
 }
-
-// void	uf_iter_callback(t_list *v)
-// {
-// 	*(size_t*)v->content = *(size_t*)v->content + 1;
-// }
-
-// #include <stdio.h>
-
-// int main()
-// {
-// 	t_list	*begin;
-// 	size_t	v;
-// 	size_t	w;
-
-// 	v = 1;
-// 	w = 2;
-// 	begin = ft_lstnew(&v, sizeof(size_t));
-// 	begin->next = ft_lstnew(&w, sizeof(size_t));
-// 	ft_lstiter(begin, uf_iter_callback);
-// 	printf("%lu\n", *(size_t*)begin->content);
-// 	printf("%lu\n", *(size_t*)begin->next->content);
-
-// 	if (*(size_t*)begin->content != 2)
-// 		printf("Error 1");
-// 	if (*(size_t*)begin->next->content != 3)
-// 		printf("Error 2");
-
-// 	free(begin->next);
-// 	free(begin);
-
-// 	return (0);
-// }

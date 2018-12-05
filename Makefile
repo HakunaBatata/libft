@@ -6,7 +6,7 @@
 #    By: skunz <skunz@student.42.us.org>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/23 20:21:22 by skunz             #+#    #+#              #
-#    Updated: 2018/10/07 09:46:55 by skunz            ###   ########.fr        #
+#    Updated: 2018/12/04 22:12:04 by skunz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ BNUSO = $(BNUSS:.c=.o)
 
 #SOURCES
 MYS = 	ft_intlen.c ft_islower.c ft_isupper.c ft_iswhitespace.c ft_lstsize.c \
-		ft_printinbaselower.c ft_printinbaseupper.c ft_putnbru.c
+		ft_printinbaselower.c ft_printinbaseupper.c ft_putnbru.c ft_free2d.c
 
 #OBJECTS
 MYO = $(MYS:.c=.o)
@@ -74,15 +74,15 @@ COM_COLOR   = \033[0;32m
 NO_COLOR    = \033[m
 
 #TEXT
-COM_STRING  = "Compilation Successful"
-CLEAN_OBJ	= "Cleaned Objcets"
-CLEAN_NAME	= "Cleaned Name"
+COM_STRING  = "Library Compilation Successful"
+CLEAN_OBJ	= "Cleaned Libft Objects"
+CLEAN_NAME	= "Cleaned Libft Binary"
 
 ####################################  RULES  ###################################
 
 all: $(NAME)
 
-$(NAME):
+$(NAME)
 	@gcc -c $(FLAGS) $(SRC)
 	@ar rc $(NAME) $(OUT)
 	@ranlib $(NAME)

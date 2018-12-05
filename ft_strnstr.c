@@ -12,7 +12,17 @@
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+static int	ft_badcode(int *i, int *count, int *k, int *plen)
+{
+	int len;
+
+	*i = 0;
+	*count = (*k)++;
+	len = *plen - *k;
+	return (len);
+}
+
+char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	int i;
 	int count;
@@ -33,11 +43,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 				return ((char*)haystack + count - i + 1);
 		}
 		else
-		{
-			i = 0;
-			count = k++;
-			len = plen - k;
-		}
+			len = ft_badcode(&i, &count, &k, &plen);
 	}
 	return (NULL);
 }

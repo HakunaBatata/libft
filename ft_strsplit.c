@@ -72,7 +72,9 @@ char			**ft_strsplit(char const *s, char c)
 	int		wordc;
 	int		*count;
 	char	**result;
+	int		i;
 
+	i = -1;
 	if (!s)
 		return (NULL);
 	wordc = ft_wordcount(s, c);
@@ -80,9 +82,12 @@ char			**ft_strsplit(char const *s, char c)
 	if (!(result = malloc(sizeof(char*) * (wordc + 1))))
 		return (NULL);
 	result[wordc] = NULL;
-	while (wordc--)
-		if (!(result[wordc] = malloc(sizeof(char) * (count[wordc] + 1))))
+	while (++i < wordc)
+		if (!(result[i] = malloc(sizeof(char) * (count[i] + 1))))
+		{
+			ft_free2d(result, wordc);
 			return (NULL);
+		}
 	ft_initialise(result, s, c);
 	free(count);
 	return (result);
