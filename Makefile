@@ -82,7 +82,7 @@ CLEAN_NAME	= "Cleaned Libft Binary"
 
 all: $(NAME)
 
-$(NAME)
+$(NAME):
 	@gcc -c $(FLAGS) $(SRC)
 	@ar rc $(NAME) $(OUT)
 	@ranlib $(NAME)
