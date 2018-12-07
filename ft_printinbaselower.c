@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_printinbaselower(int base, int nb)
+void	ft_printinbaselower(int base, long long nb)
 {
 	if (nb >= base)
 	{

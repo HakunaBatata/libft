@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printinbaseupper.c                              :+:      :+:    :+:   */
+/*   ft_uintlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skunz <skunz@student.42.us.org>            +#+  +:+       +#+        */
+/*   By: skunz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/22 22:37:47 by skunz             #+#    #+#             */
-/*   Updated: 2018/10/22 22:59:54 by skunz            ###   ########.fr       */
+/*   Created: 2018/12/06 17:56:57 by skunz             #+#    #+#             */
+/*   Updated: 2018/12/06 17:56:59 by skunz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_printinbaseupper(int base, long long nb)
+size_t				ft_uintlen(unsigned int u)
 {
-	if (nb >= base)
-	{
-		ft_printinbaseupper(base, nb / base);
-		ft_printinbaseupper(base, nb % base);
-	}
-	else
-	{
-		if (nb >= 10)
-			ft_putchar(nb + 'A' - 10);
-		else
-			ft_putnbr(nb);
-	}
+	size_t len;
+
+	len = 1;
+	while ((u = (u / 10)) > 0)
+		len++;
+	return (len);
 }
