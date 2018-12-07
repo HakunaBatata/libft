@@ -107,13 +107,15 @@ t_list				*ft_lstnew(void const *content, size_t content_size);
 */
 
 size_t				ft_intlen(int n);
+size_t				ft_uintlen(unsigned int n);
 int					ft_islower(int c);
 int					ft_isupper(int c);
 int					ft_iswhitespace(char c);
 size_t				ft_lstsize(t_list *begin_list);
-void				ft_printinbaselower(int base, int nb);
-void				ft_printinbaseupper(int base, int nb);
+void				ft_printinbaselower(int base, long long nb);
+void				ft_printinbaseupper(int base, long long nb);
 void				ft_putnbru(unsigned int n);
 void				ft_free2d(char **array, int len);
+char				*ft_lltoa_base(long long n, int base);
 
 #endif

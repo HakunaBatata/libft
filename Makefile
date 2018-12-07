@@ -55,7 +55,7 @@ BNUSO = $(BNUSS:.c=.o)
 #SOURCES
 MYS = 	ft_intlen.c ft_islower.c ft_isupper.c ft_iswhitespace.c ft_lstsize.c \
 		ft_printinbaselower.c ft_printinbaseupper.c ft_putnbru.c ft_free2d.c \
-		ft_uintlen.c
+		ft_uintlen.c ft_lltoa_base.c
 
 #OBJECTS
 MYO = $(MYS:.c=.o)
@@ -77,7 +77,7 @@ NO_COLOR    = \033[m
 #TEXT
 COM_STRING  = "Library Compilation Successful"
 CLEAN_OBJ	= "Cleaned Libft Objects"
-CLEAN_NAME	= "Cleaned Libft Binary"
+CLEAN_NAME	= "Cleaned Library"
 
 ####################################  RULES  ###################################
 
