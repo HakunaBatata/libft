@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbru.c                                       :+:      :+:    :+:   */
+/*   ft_ulllen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skunz <skunz@student.42.us.org>            +#+  +:+       +#+        */
+/*   By: skunz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/22 23:13:20 by skunz             #+#    #+#             */
-/*   Updated: 2018/10/22 23:13:21 by skunz            ###   ########.fr       */
+/*   Created: 2018/12/07 11:14:58 by skunz             #+#    #+#             */
+/*   Updated: 2018/12/07 11:15:00 by skunz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbru(unsigned long long n)
+size_t	ft_ulllen(unsigned long long n)
 {
-	if (n >= 10)
-	{
-		ft_putnbru(n / 10);
-		ft_putnbru(n % 10);
-	}
-	else
-		ft_putchar(n + '0');
+	size_t len;
+
+	len = 1;
+	while ((n = (n / 10)) > 0)
+		len++;
+	return (len);
 }

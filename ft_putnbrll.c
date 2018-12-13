@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbru.c                                       :+:      :+:    :+:   */
+/*   ft_putnbrll.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skunz <skunz@student.42.us.org>            +#+  +:+       +#+        */
+/*   By: skunz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/22 23:13:20 by skunz             #+#    #+#             */
-/*   Updated: 2018/10/22 23:13:21 by skunz            ###   ########.fr       */
+/*   Created: 2018/12/08 19:16:41 by skunz             #+#    #+#             */
+/*   Updated: 2018/12/08 19:16:43 by skunz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbru(unsigned long long n)
+void	ft_putnbrll(long long n)
 {
+	if (n == -9223372036854775807)
+	{
+		ft_putchar('-');
+		ft_putchar('9');
+		ft_putnbrll(223372036854775808);
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n *= -1;
+	}
 	if (n >= 10)
 	{
-		ft_putnbru(n / 10);
-		ft_putnbru(n % 10);
+		ft_putnbrll(n / 10);
+		ft_putnbrll(n % 10);
 	}
 	else
 		ft_putchar(n + '0');

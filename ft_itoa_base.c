@@ -20,23 +20,23 @@ char	*ft_lltoa_base(long long n, int base)
 	long long	temp;
 
 	sign = (n < 0) ? 1 : 0;
-	len = 1;
+	len = 0;
 	temp = (n < 0) ? -n : n;
-	if (sign)
-		len++;
+	sign ? len++ : 0;
 	while ((temp /= base) > 0)
 		len++;
-	if (!(res = malloc(sizeof(char) * len)))
+	if (!(res = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	res[len] = '\0';
-	if (n < 0)
-		n *= -1;
+	n = (n < 0) ? -n : n;
 	while (len--)
 	{
-		res[len] = (n % base < 10) ? n % base + '0' : n % base + 'A' - 10;
+		if (n % base < 10)
+			res[len] = n % base + '0';
+		else
+			res[len] = n % base + 'A' - 10;
 		n /= base;
 	}
-	if (sign)
-		res[0] = '-';
+	(sign) ? res[0] = '-' : 0;
 	return (res);
 }

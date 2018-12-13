@@ -55,7 +55,8 @@ BNUSO = $(BNUSS:.c=.o)
 #SOURCES
 MYS = 	ft_intlen.c ft_islower.c ft_isupper.c ft_iswhitespace.c ft_lstsize.c \
 		ft_printinbaselower.c ft_printinbaseupper.c ft_putnbru.c ft_free2d.c \
-		ft_uintlen.c ft_lltoa_base.c
+		ft_uintlen.c ft_lltoa_base.c ft_lllen.c ft_ulllen.c ft_putnbrll.c    \
+		ft_print_double.c ft_pow.c
 
 #OBJECTS
 MYO = $(MYS:.c=.o)

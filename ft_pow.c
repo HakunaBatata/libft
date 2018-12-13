@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbru.c                                       :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skunz <skunz@student.42.us.org>            +#+  +:+       +#+        */
+/*   By: skunz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/22 23:13:20 by skunz             #+#    #+#             */
-/*   Updated: 2018/10/22 23:13:21 by skunz            ###   ########.fr       */
+/*   Created: 2018/12/09 11:59:45 by skunz             #+#    #+#             */
+/*   Updated: 2018/12/09 11:59:46 by skunz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbru(unsigned long long n)
+unsigned long long	ft_pow(int base, int power)
 {
-	if (n >= 10)
-	{
-		ft_putnbru(n / 10);
-		ft_putnbru(n % 10);
-	}
-	else
-		ft_putchar(n + '0');
+	long long nb;
+
+	nb = 1;
+	if (power == 0)
+		return (1);
+	else if (base == 0)
+		return (0);
+	while (power--)
+		nb *= base;
+	return (nb);
 }

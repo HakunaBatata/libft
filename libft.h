@@ -6,7 +6,7 @@
 /*   By: skunz <skunz@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/20 22:03:14 by skunz             #+#    #+#             */
-/*   Updated: 2018/11/27 09:43:02 by skunz            ###   ########.fr       */
+/*   Updated: 2018/12/12 18:07:21 by skunz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
+
+# define BUFF_SIZE 4096
+# define MAX_FD 4864
 
 /*
 **  Linked List Structure
@@ -27,6 +31,12 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+/*
+** get_next_line.c
+*/
+
+int					get_next_line(const int fd, char **line);
 
 /*
 **  Prototypes for libc-functions
@@ -107,15 +117,20 @@ t_list				*ft_lstnew(void const *content, size_t content_size);
 */
 
 size_t				ft_intlen(int n);
+size_t				ft_lllen(long long n);
 size_t				ft_uintlen(unsigned int n);
+size_t				ft_ulllen(unsigned long long n);
 int					ft_islower(int c);
 int					ft_isupper(int c);
 int					ft_iswhitespace(char c);
 size_t				ft_lstsize(t_list *begin_list);
 void				ft_printinbaselower(int base, long long nb);
 void				ft_printinbaseupper(int base, long long nb);
-void				ft_putnbru(unsigned int n);
+void				ft_putnbru(unsigned long long n);
 void				ft_free2d(char **array, int len);
 char				*ft_lltoa_base(long long n, int base);
+void				ft_putnbrll(long long n);
+unsigned long long	ft_pow(int base, int power);
+void				ft_print_double(long double n, int accuracy);
 
 #endif
