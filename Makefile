@@ -12,6 +12,12 @@
 
 ##################################  GENERAL  ###################################
 
+INC = -I ./includes/
+
+SRC_DIR = ./src/
+
+OBJ_DIR = ./obj/
+
 NAME =	libft.a
 
 FLAGS = -Wall -Wextra -Werror
@@ -26,9 +32,6 @@ LIBCS = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c            \
 		ft_strncmp.c ft_strlcat.c ft_strncpy.c ft_strnstr.c ft_strrchr.c       \
 		ft_strstr.c ft_tolower.c ft_toupper.c
 
-#OBJECTS
-LIBCO = $(LIBCS:.c=.o)
-
 #################################  ADDITIONAL  #################################
 
 #SOURCES
@@ -38,17 +41,11 @@ ADDIS = ft_itoa.c ft_memalloc.c ft_memdel.c ft_putchar.c ft_putchar_fd.c       \
 		ft_striteri.c ft_strjoin.c ft_strmap.c ft_strmapi.c ft_strnequ.c       \
 		ft_strnew.c ft_strsplit.c ft_strsub.c ft_strtrim.c
 
-#OBJECTS
-ADDIO = $(ADDIS:.c=.o)
-
 ####################################  BONUS  ###################################
 
 #SOURCES
 BNUSS =	ft_lstnew.c ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_lstdel.c           \
 		ft_lstdelone.c
-
-#OBJECTS
-BNUSO = $(BNUSS:.c=.o)
 
 ################################  MY-FUNCTIONS  ################################
 
@@ -58,16 +55,13 @@ MYS = 	ft_intlen.c ft_islower.c ft_isupper.c ft_iswhitespace.c ft_lstsize.c \
 		ft_uintlen.c ft_lltoa_base.c ft_lllen.c ft_ulllen.c ft_putnbrll.c    \
 		ft_print_double.c ft_pow.c get_next_line.c
 
-#OBJECTS
-MYO = $(MYS:.c=.o)
-
 #####################################  ALL  ####################################
 
-#SOURCES
-SRC = $(LIBCS) $(ADDIS) $(MYS) $(BNUSS)
-
 #OBJECTS
-OUT = $(LIBCO) $(ADDIO) $(MYO) $(BNUSO)
+OBJ = $(addprefix $(OBJ_DIR),$(LIBCS:.c=.o))
+OBJ += $(addprefix $(OBJ_DIR),$(ADDIS:.c=.o))
+OBJ += $(addprefix $(OBJ_DIR),$(BNUSS:.c=.o))
+OBJ += $(addprefix $(OBJ_DIR),$(MYS:.c=.o))
 
 ###############################  COLORS AND TEXT  ##############################
 
@@ -82,20 +76,25 @@ CLEAN_NAME	= "Cleaned Library"
 
 ####################################  RULES  ###################################
 
-all: $(NAME)
+all: obj $(NAME)
 
-$(NAME):
-	@gcc -c $(FLAGS) $(SRC)
-	@ar rc $(NAME) $(OUT)
-	@ranlib $(NAME)
+obj:
+	mkdir $(OBJ_DIR)
+
+$(NAME): $(OBJ)
+	ar rc $@ $^
+	ranlib $@
 	@echo "$(COM_COLOR)$(COM_STRING)$(NO_COLOR)"
 
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	gcc $(FLAGS) $(INC) -c $< -o $@
+
 clean:
-	@/bin/rm -f $(OUT)
+	/bin/rm -rf $(OBJ_DIR)
 	@echo "$(COM_COLOR)$(CLEAN_OBJ)$(NO_COLOR)"
 
 fclean: clean
-	@/bin/rm -f $(NAME)
+	/bin/rm -f $(NAME)
 	@echo "$(COM_COLOR)$(CLEAN_NAME)$(NO_COLOR)"
 
 re: fclean all
