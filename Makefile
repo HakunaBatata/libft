@@ -6,7 +6,7 @@
 #    By: skunz <skunz@student.42.us.org>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/23 20:21:22 by skunz             #+#    #+#              #
-#    Updated: 2018/12/04 22:12:04 by skunz            ###   ########.fr        #
+#    Updated: 2018/12/29 09:51:13 by skunz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,22 +79,22 @@ CLEAN_NAME	= "Cleaned Library"
 all: obj $(NAME)
 
 obj:
-	mkdir $(OBJ_DIR)
+	@mkdir $(OBJ_DIR)
 
 $(NAME): $(OBJ)
-	ar rc $@ $^
-	ranlib $@
+	@ar rc $@ $^
+	@ranlib $@
 	@echo "$(COM_COLOR)$(COM_STRING)$(NO_COLOR)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	gcc $(FLAGS) $(INC) -c $< -o $@
+	@gcc $(FLAGS) $(INC) -c $< -o $@
 
 clean:
-	/bin/rm -rf $(OBJ_DIR)
+	@/bin/rm -rf $(OBJ_DIR)
 	@echo "$(COM_COLOR)$(CLEAN_OBJ)$(NO_COLOR)"
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 	@echo "$(COM_COLOR)$(CLEAN_NAME)$(NO_COLOR)"
 
 re: fclean all
