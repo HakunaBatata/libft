@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skunz <skunz@student.42.us.org>            +#+  +:+       +#+        */
+/*   By: skunz <skunz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/20 22:03:14 by skunz             #+#    #+#             */
-/*   Updated: 2018/12/12 18:07:21 by skunz            ###   ########.fr       */
+/*   Updated: 2019/01/02 14:46:37 by skunz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ size_t				ft_lstsize(t_list *begin_list);
 void				ft_printinbaselower(int base, long long nb);
 void				ft_printinbaseupper(int base, long long nb);
 void				ft_putnbru(unsigned long long n);
-void				ft_free2d(char **array, int len);
+void				ft_free2d(void **array, int len);
 char				*ft_lltoa_base(long long n, int base);
 void				ft_putnbrll(long long n);
 unsigned long long	ft_pow(int base, int power);

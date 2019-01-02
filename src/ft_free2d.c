@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free2d.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skunz <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: skunz <skunz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 09:28:34 by skunz             #+#    #+#             */
-/*   Updated: 2018/11/27 09:28:36 by skunz            ###   ########.fr       */
+/*   Updated: 2019/01/02 14:46:16 by skunz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free2d(char **array, int len)
+void	ft_free2d(void **array, int len)
 {
 	int i;
 
