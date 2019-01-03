@@ -6,7 +6,7 @@
 /*   By: skunz <skunz@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 18:32:11 by skunz             #+#    #+#             */
-/*   Updated: 2018/09/23 18:32:12 by skunz            ###   ########.fr       */
+/*   Updated: 2019/01/02 16:45:17 by skunz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char			**ft_strsplit(char const *s, char c)
 	while (++i < wordc)
 		if (!(result[i] = malloc(sizeof(char) * (count[i] + 1))))
 		{
-			ft_free2d(result, wordc);
+			ft_free2d((void**)result, wordc);
 			return (NULL);
 		}
 	ft_initialise(result, s, c);

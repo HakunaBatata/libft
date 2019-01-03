@@ -6,7 +6,7 @@
 /*   By: skunz <skunz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/20 22:03:14 by skunz             #+#    #+#             */
-/*   Updated: 2019/01/02 14:46:37 by skunz            ###   ########.fr       */
+/*   Updated: 2019/01/02 16:44:08 by skunz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,5 +132,7 @@ char				*ft_lltoa_base(long long n, int base);
 void				ft_putnbrll(long long n);
 unsigned long long	ft_pow(int base, int power);
 void				ft_print_double(long double n, int accuracy);
+void				ft_lstpush(t_list **begin, void const *content,
+						size_t content_size);
 
 #endif
