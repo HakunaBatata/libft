@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: skunz <skunz@student.42.us.org>            +#+  +:+       +#+         #
+#    By: skunz <skunz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/23 20:21:22 by skunz             #+#    #+#              #
-#    Updated: 2019/01/02 16:44:28 by skunz            ###   ########.fr        #
+#    Updated: 2019/02/20 11:39:54 by skunz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INC = -I ./includes/
 
 SRC_DIR = ./src/
 
-OBJ_DIR = ./obj/
+OBJ_DIR = ./.obj/
 
 NAME =	libft.a
 
@@ -55,6 +55,23 @@ MYS = 	ft_intlen.c ft_islower.c ft_isupper.c ft_iswhitespace.c ft_lstsize.c \
 		ft_uintlen.c ft_lltoa_base.c ft_lllen.c ft_ulllen.c ft_putnbrll.c    \
 		ft_print_double.c ft_pow.c get_next_line.c ft_lstpush.c
 
+################################ QUEUE #########################################
+
+#NAME
+Q_NAME = libftq.a
+
+#DIR
+Q_DIR = ./queue/
+
+#SOURCES
+SRC_Q = queue.c
+
+#OBJ
+Q_OBJ = $(addprefix $(OBJ_DIR), $(SRC_Q:.c=.o))
+
+#MSG
+Q_COM_STRING  = "Queue Compilation Successful"
+
 #####################################  ALL  ####################################
 
 #OBJECTS
@@ -79,15 +96,25 @@ CLEAN_NAME	= "Cleaned Library"
 all: obj $(NAME)
 
 obj:
-	@mkdir $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)
 
 $(NAME): $(OBJ)
 	@ar rc $@ $^
 	@ranlib $@
 	@echo "$(COM_COLOR)$(COM_STRING)$(NO_COLOR)"
 
+#BASE OBJ
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@gcc $(FLAGS) $(INC) -c $< -o $@
+
+#QUEUE OBJ
+$(OBJ_DIR)%.o: $(Q_DIR)%.c
+	@gcc $(FLAGS) $(INC) -c $< -o $@
+
+queue: $(OBJ) $(Q_OBJ)
+	@ar rc $(Q_NAME) $(OBJ) $(Q_OBJ)
+	@ranlib $(Q_NAME)
+	@echo "$(COM_COLOR)$(Q_COM_STRING)$(NO_COLOR)"
 
 clean:
 	@/bin/rm -rf $(OBJ_DIR)
@@ -95,6 +122,7 @@ clean:
 
 fclean: clean
 	@/bin/rm -f $(NAME)
+	@/bin/rm -f $(Q_NAME)
 	@echo "$(COM_COLOR)$(CLEAN_NAME)$(NO_COLOR)"
 
 re: fclean all
